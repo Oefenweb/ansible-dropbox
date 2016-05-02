@@ -1,0 +1,7 @@
+# test file for dropbox
+---
+- hosts: localhost
+  connection: local
+  sudo: true
+  roles:
+    - ../../
