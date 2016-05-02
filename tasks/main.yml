@@ -1,0 +1,33 @@
+# tasks file for dropbox
+---
+- name: create (download) directory
+  file:
+    path: "{{ dropbox_downloads_path }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+  tags:
+    - configuration
+    - dropbox
+    - dropbox-download
+
+- name: download
+  get_url:
+    url: "https://www.dropbox.com/download?dl=packages/{{ ansible_distribution | lower }}/dropbox_{{ dropbox_version }}_{{ dropbox_machine_map[ansible_machine] }}.deb"
+    dest: "{{ dropbox_downloads_path }}/dropbox_{{ dropbox_version }}_{{ dropbox_machine_map[ansible_machine] }}.deb"
+    owner: root
+    group: root
+    mode: 0644
+  tags:
+    - configuration
+    - dropbox
+    - dropbox-download
+
+- name: install deb file
+  apt:
+    deb: "{{ dropbox_downloads_path }}/dropbox_{{ dropbox_version }}_{{ dropbox_machine_map[ansible_machine] }}.deb"
+  tags:
+    - configuration
+    - dropbox
+    - dropbox-install-deb
