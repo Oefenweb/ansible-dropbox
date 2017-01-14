@@ -6,7 +6,7 @@ Set up [Dropbox](https://www.dropbox.com/) in Debian-like systems.
 
 #### Requirements
 
-None
+* `curl` (will be installed)
 
 #### Variables
 

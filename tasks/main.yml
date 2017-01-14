@@ -1,5 +1,15 @@
 # tasks file for dropbox
 ---
+- name: install | dependencies
+  apt:
+    name: "{{ item }}"
+    state: "{{ apt_install_state | default('latest') }}"
+    update_cache: true
+    cache_valid_time: "{{ apt_update_cache_valid_time | default(3600) }}"
+  with_items: "{{ dropbox_dependencies }}"
+  tags:
+    - dropbox-install-dependencies
+
 - name: create (download) directory
   file:
     path: "{{ dropbox_downloads_path }}"
@@ -13,12 +23,12 @@
     - dropbox-download
 
 - name: download
-  get_url:
-    url: "https://www.dropbox.com/download?dl=packages/{{ ansible_distribution | lower }}/dropbox_{{ dropbox_version }}_{{ dropbox_machine_map[ansible_machine] }}.deb"
-    dest: "{{ dropbox_downloads_path }}/dropbox_{{ dropbox_version }}_{{ dropbox_machine_map[ansible_machine] }}.deb"
-    owner: root
-    group: root
-    mode: 0644
+  command: >
+    curl -sSL
+    https://www.dropbox.com/download?dl=packages/{{ ansible_distribution | lower }}/dropbox_{{ dropbox_version }}_{{ dropbox_machine_map[ansible_machine] }}.deb
+    -o {{ dropbox_downloads_path }}/dropbox_{{ dropbox_version }}_{{ dropbox_machine_map[ansible_machine] }}.deb
+  args:
+    creates: "{{ dropbox_downloads_path }}/dropbox_{{ dropbox_version }}_{{ dropbox_machine_map[ansible_machine] }}.deb"
   tags:
     - configuration
     - dropbox
