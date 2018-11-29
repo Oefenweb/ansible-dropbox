@@ -2,11 +2,10 @@
 ---
 - name: install | dependencies
   apt:
-    name: "{{ item }}"
+    name: "{{ dropbox_dependencies }}"
     state: "{{ apt_install_state | default('latest') }}"
     update_cache: true
     cache_valid_time: "{{ apt_update_cache_valid_time | default(3600) }}"
-  with_items: "{{ dropbox_dependencies }}"
   tags:
     - dropbox-install-dependencies
 
@@ -29,6 +28,7 @@
     -o {{ dropbox_downloads_path }}/dropbox_{{ dropbox_version }}_{{ dropbox_machine_map[ansible_machine] }}.deb
   args:
     creates: "{{ dropbox_downloads_path }}/dropbox_{{ dropbox_version }}_{{ dropbox_machine_map[ansible_machine] }}.deb"
+    warn: false
   tags:
     - configuration
     - dropbox
