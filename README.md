@@ -10,7 +10,7 @@ Set up [Dropbox](https://www.dropbox.com/) in Debian-like systems.
 
 #### Variables
 
-* `dropbox_version` [default: `2018.11.08`]: Version to install
+* `dropbox_version` [default: `2018.11.28`]: Version to install
 
 ## Dependencies
 
