@@ -1,6 +1,7 @@
 ## dropbox
 
-[![Build Status](https://travis-ci.org/Oefenweb/ansible-dropbox.svg?branch=master)](https://travis-ci.org/Oefenweb/ansible-dropbox) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-dropbox-blue.svg)](https://galaxy.ansible.com/Oefenweb/ansible-dropbox)
+[![Build Status](https://travis-ci.org/Oefenweb/ansible-dropbox.svg?branch=master)](https://travis-ci.org/Oefenweb/ansible-dropbox)
+[![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-dropbox-blue.svg)](https://galaxy.ansible.com/Oefenweb/ansible-dropbox)
 
 Set up [Dropbox](https://www.dropbox.com/) in Debian-like systems.
 
@@ -10,7 +11,7 @@ Set up [Dropbox](https://www.dropbox.com/) in Debian-like systems.
 
 #### Variables
 
-* `dropbox_version` [default: `2019.02.14`]: Version to install
+* `dropbox_version` [default: `2020.03.04`]: Version to install
 
 ## Dependencies
 
