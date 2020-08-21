@@ -19,7 +19,7 @@ galaxy_info:
         - wheezy
         - jessie
         - stretch
-        - trusty
+        - buster
   galaxy_tags:
     - development
     - system
