@@ -1,4 +1,4 @@
-# vars file for dropbox
+# vars file
 ---
 dropbox_dependencies:
   - curl

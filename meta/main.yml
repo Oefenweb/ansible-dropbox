@@ -1,6 +1,7 @@
-# meta file for dropbox
+# meta file
 ---
 galaxy_info:
+  namespace: oefenweb
   role_name: dropbox
   author: Mischa ter Smitten
   company: Oefenweb.nl B.V.
