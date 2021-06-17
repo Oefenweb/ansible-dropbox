@@ -1,6 +1,6 @@
 ## dropbox
 
-[![Build Status](https://travis-ci.org/Oefenweb/ansible-dropbox.svg?branch=master)](https://travis-ci.org/Oefenweb/ansible-dropbox)
+[![CI](https://github.com/Oefenweb/ansible-dropbox/workflows/CI/badge.svg)](https://github.com/Oefenweb/ansible-dropbox/actions?query=workflow%3ACI)
 [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-dropbox-blue.svg)](https://galaxy.ansible.com/Oefenweb/ansible-dropbox)
 
 Set up [Dropbox](https://www.dropbox.com/) in Debian-like systems.
