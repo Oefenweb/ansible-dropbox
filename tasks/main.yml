@@ -1,7 +1,7 @@
 # tasks file
 ---
 - name: install | dependencies
-  apt:
+  ansible.builtin.apt:
     name: "{{ dropbox_dependencies }}"
     state: "{{ apt_install_state | default('latest') }}"
     update_cache: true
@@ -10,7 +10,7 @@
     - dropbox-install-dependencies
 
 - name: create (download) directory
-  file:
+  ansible.builtin.file:
     path: "{{ dropbox_downloads_path }}"
     state: directory
     owner: root
@@ -22,7 +22,7 @@
     - dropbox-download
 
 - name: download
-  command: >
+  ansible.builtin.command: >
     curl -sSL
     https://www.dropbox.com/download?dl=packages/{{ ansible_distribution | lower }}/dropbox_{{ dropbox_version }}_{{ dropbox_machine_map[ansible_machine] }}.deb
     -o {{ dropbox_downloads_path }}/dropbox_{{ dropbox_version }}_{{ dropbox_machine_map[ansible_machine] }}.deb
@@ -35,7 +35,7 @@
     - dropbox-download
 
 - name: install deb file
-  apt:
+  ansible.builtin.apt:
     deb: "{{ dropbox_downloads_path }}/dropbox_{{ dropbox_version }}_{{ dropbox_machine_map[ansible_machine] }}.deb"
   tags:
     - configuration
