@@ -28,7 +28,6 @@
     -o {{ dropbox_downloads_path }}/dropbox_{{ dropbox_version }}_{{ dropbox_machine_map[ansible_machine] }}.deb
   args:
     creates: "{{ dropbox_downloads_path }}/dropbox_{{ dropbox_version }}_{{ dropbox_machine_map[ansible_machine] }}.deb"
-    warn: false
   tags:
     - configuration
     - dropbox
