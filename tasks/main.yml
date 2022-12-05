@@ -21,7 +21,7 @@
     - dropbox
     - dropbox-download
 
-- name: download
+- name: download  # noqa command-instead-of-module
   ansible.builtin.command: >
     curl -sSL
     https://www.dropbox.com/download?dl=packages/{{ ansible_distribution | lower }}/dropbox_{{ dropbox_version }}_{{ dropbox_machine_map[ansible_machine] }}.deb
