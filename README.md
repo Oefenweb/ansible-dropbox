@@ -23,7 +23,7 @@ None
 ---
 - hosts: all
   roles:
-    - dropbox
+    - oefenweb.dropbox
 ```
 
 #### License
