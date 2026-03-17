@@ -11,7 +11,7 @@ Set up [Dropbox](https://www.dropbox.com/) in Debian-like systems.
 
 #### Variables
 
-* `dropbox_version` [default: `2020.03.04`]: Version to install
+* `dropbox_version` [default: `2026.01.15`]: Version to install
 
 ## Dependencies
 
