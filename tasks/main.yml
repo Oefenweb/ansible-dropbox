@@ -24,10 +24,10 @@
 - name: download  # noqa command-instead-of-module
   ansible.builtin.command: >
     curl -sSL
-    https://www.dropbox.com/download?dl=packages/{{ ansible_distribution | lower }}/dropbox_{{ dropbox_version }}_{{ dropbox_machine_map[ansible_machine] }}.deb
-    -o {{ dropbox_downloads_path }}/dropbox_{{ dropbox_version }}_{{ dropbox_machine_map[ansible_machine] }}.deb
+    https://www.dropbox.com/download?dl=packages/{{ ansible_facts['distribution'] | lower }}/dropbox_{{ dropbox_version }}_{{ dropbox_machine_map[ansible_facts['machine']] }}.deb
+    -o {{ dropbox_downloads_path }}/dropbox_{{ dropbox_version }}_{{ dropbox_machine_map[ansible_facts['machine']] }}.deb
   args:
-    creates: "{{ dropbox_downloads_path }}/dropbox_{{ dropbox_version }}_{{ dropbox_machine_map[ansible_machine] }}.deb"
+    creates: "{{ dropbox_downloads_path }}/dropbox_{{ dropbox_version }}_{{ dropbox_machine_map[ansible_facts['machine']] }}.deb"
   tags:
     - configuration
     - dropbox
@@ -35,7 +35,7 @@
 
 - name: install deb file
   ansible.builtin.apt:
-    deb: "{{ dropbox_downloads_path }}/dropbox_{{ dropbox_version }}_{{ dropbox_machine_map[ansible_machine] }}.deb"
+    deb: "{{ dropbox_downloads_path }}/dropbox_{{ dropbox_version }}_{{ dropbox_machine_map[ansible_facts['machine']] }}.deb"
   tags:
     - configuration
     - dropbox
